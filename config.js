@@ -120,21 +120,21 @@ window.SITE_CONFIG = {
   // 11. Client testimonials cards
   testimonials: [
     {
-      name: "Sarah Jenkins",
-      role: "Miami Homeowner",
-      photo: "{{CLIENT_PHOTO_1}}",
-      review: "Stellar Interior Designs completely re-imagined our living space. Their capacity to blend natural light with high-end materials exceeded our highest expectations."
+      name: "Shriyanshi Shukla",
+      role: "Client",
+      photo: "",
+      review: "They do an amazing work, paying attention to details."
     },
     {
-      name: "Marcus Sterling",
-      role: "Developer, Sterling Group",
-      photo: "{{CLIENT_PHOTO_2}}",
-      review: "Their design execution is outstanding. A dedicated, creative team that values schedule compliance and architectural detailing."
+      name: "Lakshya Sharma",
+      role: "Client",
+      photo: "",
+      review: "Great attention to detail and good involvement of the Engineer in construction, as well as interior designing. Good investment for construction of a sturdy and beautiful home."
     }
   ],
 
   // 12. Link to Google Business reviews or general reviews directory
-  testimonialsLink: "https://www.google.com/maps/search/?api=1&query=Vidhana+Soudha+Bangalore",
+  testimonialsLink: "https://maps.app.goo.gl/DWvhqokmrgFYaV797",
 
   // 13. Team catalog
   team: [
