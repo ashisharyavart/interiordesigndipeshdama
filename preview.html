@@ -1361,6 +1361,8 @@
       }
 
       // 3. Populate Header / Logo / CTAs
+      document.title = `${config.brand.companyName} - ${config.brand.tagline}`;
+
       const navLogoText = document.getElementById("nav-logo-text");
       const navLogoLink = document.getElementById("nav-logo-link");
       if (config.brand.logo && config.brand.logo !== "./assets/stellar-logo.png") {
@@ -1374,6 +1376,73 @@
         navCtaBtn.textContent = config.ctas.primaryCta;
         if (config.ctas.bookingLink) navCtaBtn.href = config.ctas.bookingLink;
       }
+
+      // Populate Hero Section
+      const heroSubtitle = document.querySelector("#hero .hero-subtitle");
+      if (heroSubtitle) heroSubtitle.textContent = config.hero.subtitle;
+      
+      const heroTitle = document.querySelector("#hero .hero-title");
+      if (heroTitle) heroTitle.textContent = config.hero.title;
+      
+      const heroDesc = document.querySelector("#hero .hero-description");
+      if (heroDesc) heroDesc.textContent = config.about.description;
+      
+      const heroImg = document.getElementById("hero-element-img");
+      if (heroImg && config.hero.image && !config.hero.image.includes("{{")) heroImg.src = config.hero.image;
+      
+      const heroPrimaryBtn = document.querySelector("#hero .btn-filled");
+      if (heroPrimaryBtn) heroPrimaryBtn.textContent = config.ctas.primaryCta;
+      
+      const heroSecondaryBtn = document.querySelector("#hero .btn-underline");
+      if (heroSecondaryBtn) heroSecondaryBtn.textContent = config.ctas.secondaryCta;
+
+      // Populate About Section
+      const aboutTitle = document.querySelector("#about .about-title");
+      if (aboutTitle) aboutTitle.textContent = config.about.title;
+      
+      const aboutDesc = document.querySelector("#about .about-description");
+      if (aboutDesc) aboutDesc.textContent = config.about.description;
+      
+      const aboutImg = document.getElementById("about-element-img");
+      if (aboutImg && config.about.image && !config.about.image.includes("{{")) aboutImg.src = config.about.image;
+      
+      const aboutBtn = document.querySelector("#about .btn-outline");
+      if (aboutBtn) aboutBtn.textContent = config.ctas.primaryCta;
+
+      // Populate Statistics
+      const statYears = document.getElementById("stat-years");
+      if (statYears) statYears.textContent = config.statistics.yearsExperience;
+      
+      const statProjects = document.getElementById("stat-projects");
+      if (statProjects) statProjects.textContent = config.statistics.projectsCompleted;
+      
+      const statClients = document.getElementById("stat-clients");
+      if (statClients) statClients.textContent = config.statistics.clientsServed;
+      
+      const statAwards = document.getElementById("stat-awards");
+      if (statAwards) statAwards.textContent = config.statistics.awards;
+
+      // Populate Contact Section Details
+      const contactPhone = document.getElementById("contact-phone-el");
+      if (contactPhone) {
+        contactPhone.textContent = config.contact.phone;
+        contactPhone.href = `tel:${config.contact.phone}`;
+      }
+      
+      const contactEmail = document.getElementById("contact-email-el");
+      if (contactEmail) {
+        contactEmail.textContent = config.contact.email;
+        contactEmail.href = `mailto:${config.contact.email}`;
+      }
+      
+      const contactAddress = document.getElementById("contact-address-el");
+      if (contactAddress) {
+        contactAddress.textContent = config.contact.address;
+        contactAddress.href = config.contact.googleMap;
+      }
+      
+      const contactSubmitBtn = document.querySelector("#contact form button[type='submit']");
+      if (contactSubmitBtn) contactSubmitBtn.textContent = config.ctas.primaryCta;
 
       // 4. Render Services
       const servicesContainer = document.getElementById("services-container");
