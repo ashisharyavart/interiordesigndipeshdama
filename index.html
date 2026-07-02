@@ -1194,8 +1194,8 @@
     <!-- About Section -->
     <section id="about">
       <div class="container about-grid">
-        <div class="about-img-container reveal">
-          <img src="{{ABOUT_IMAGE}}" alt="Architectural Detail" class="about-img" id="about-element-img">
+        <div class="about-img-container reveal" id="about-img-container-el">
+          <!-- Populated dynamically by JS -->
         </div>
         <div class="about-content reveal" style="transition-delay: 0.2s;">
           <span class="hero-subtitle">Our Philosophy</span>
@@ -1449,7 +1449,7 @@
       },
       
       about: {
-        image: "./assets/about.jpg",
+        image: "./assets/about2vid.mp4",
         title: "Where Vision Meets Elegant Design",
         description: "From contemporary residences to sophisticated commercial spaces, we transform ideas into beautifully curated interiors. Every project is designed with precision, premium materials, and a commitment to creating spaces that are both visually stunning and effortlessly functional."
       },
@@ -1633,12 +1633,22 @@
       const aboutDesc = document.querySelector("#about .about-description");
       if (aboutDesc) aboutDesc.textContent = config.about.description;
       
-      const aboutImg = document.getElementById("about-element-img");
-      if (aboutImg) {
-        if (config.about.image && !config.about.image.includes("{{")) {
-          aboutImg.src = config.about.image;
+      const aboutContainer = document.getElementById("about-img-container-el");
+      if (aboutContainer) {
+        const fileUrl = config.about.image && !config.about.image.includes("{{") ? config.about.image : "./assets/about.jpg";
+        const isVideo = fileUrl.endsWith(".mp4") || fileUrl.endsWith(".webm") || fileUrl.endsWith(".mov");
+        
+        if (isVideo) {
+          aboutContainer.innerHTML = `
+            <video autoplay loop muted playsinline class="about-img" style="width: 100%; height: auto; object-fit: cover; aspect-ratio: 4/5;">
+              <source src="${fileUrl}" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+          `;
         } else {
-          aboutImg.src = 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="400" height="500" viewBox="0 0 400 500"><rect width="100%" height="100%" fill="%23e5e0d8"/><text x="50%" y="50%" font-family="Outfit" font-size="14" fill="%238c8275" text-anchor="middle" dominant-baseline="middle" letter-spacing="2">ABOUT IMAGE</text></svg>';
+          aboutContainer.innerHTML = `
+            <img src="${fileUrl}" alt="Architectural Detail" class="about-img" id="about-element-img">
+          `;
         }
       }
 
