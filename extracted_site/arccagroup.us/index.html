@@ -1,0 +1,1609 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{COMPANY_NAME}} - {{TAGLINE}}</title>
+  
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="At {{COMPANY_NAME}}, we craft more than spaces — {{TAGLINE}}">
+  <meta property="og:title" content="{{COMPANY_NAME}} - {{TAGLINE}}">
+  <meta property="og:description" content="At {{COMPANY_NAME}}, we craft more than spaces — {{TAGLINE}}">
+  <meta property="og:site_name" content="{{COMPANY_NAME}}">
+  <meta property="og:image" content="{{HERO_IMAGE}}">
+  <meta name="twitter:title" content="{{COMPANY_NAME}} - {{TAGLINE}}">
+  <meta name="twitter:description" content="At {{COMPANY_NAME}}, we craft more than spaces — {{TAGLINE}}">
+  <meta name="twitter:image" content="{{HERO_IMAGE}}">
+
+  <!-- Google Fonts Connection -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Outfit:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <style id="theme-styles">
+    /* Core CSS variables (initialized dynamically by SITE_CONFIG) */
+    :root {
+      --primary-color: #f5f2eb;
+      --secondary-color: #2a2421;
+      --accent-color: #9c7443;
+      --bg-color: #f5f2eb;
+      --text-color: #2a2421;
+      --heading-font: 'Cormorant Garamond', serif;
+      --body-font: 'Outfit', sans-serif;
+      --border-radius: 8px;
+    }
+
+    /* Reset & Base Styles */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      font-family: var(--body-font);
+      line-height: 1.6;
+      overflow-x: hidden;
+      scroll-behavior: smooth;
+      transition: background-color 0.4s ease, color 0.4s ease;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      font-family: var(--heading-font);
+      font-weight: 300;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    /* Container Utility */
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Spacing Utility */
+    section {
+      padding: 120px 0;
+      position: relative;
+    }
+
+    /* Theme-Based Component Styles */
+    /* Button styles */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px 28px;
+      font-family: var(--body-font);
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+      border-radius: var(--border-radius);
+      border: 1px solid transparent;
+    }
+
+    .btn-filled {
+      background-color: var(--secondary-color);
+      color: var(--primary-color);
+    }
+    .btn-filled:hover {
+      background-color: var(--accent-color);
+      transform: translateY(-2px);
+    }
+
+    .btn-outline {
+      background-color: transparent;
+      border-color: var(--secondary-color);
+      color: var(--secondary-color);
+    }
+    .btn-outline:hover {
+      background-color: var(--secondary-color);
+      color: var(--primary-color);
+      transform: translateY(-2px);
+    }
+
+    .btn-underline {
+      padding: 10px 0;
+      border-radius: 0;
+      border: none;
+      background: transparent;
+      color: var(--secondary-color);
+      position: relative;
+    }
+    .btn-underline::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 1px;
+      background-color: var(--secondary-color);
+      transform: scaleX(0.3);
+      transform-origin: left;
+      transition: transform 0.4s ease;
+    }
+    .btn-underline:hover::after {
+      transform: scaleX(1);
+    }
+
+    /* Card style modifications */
+    .card-plain {
+      border: none;
+      background: transparent;
+      padding: 20px 0;
+    }
+    .card-border {
+      border: 1px solid rgba(0,0,0,0.08);
+      background-color: var(--primary-color);
+      padding: 30px;
+      border-radius: var(--border-radius);
+    }
+    .card-glassmorphism {
+      background: rgba(255, 255, 255, 0.4);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      padding: 30px;
+      border-radius: var(--border-radius);
+    }
+
+    /* 1. Header & Navigation */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      background: rgba(245, 242, 235, 0.7);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(42, 36, 33, 0.05);
+      transition: all 0.3s ease;
+    }
+    header.scrolled {
+      padding: 12px 0;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.02);
+    }
+
+    .nav-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 70px;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 400;
+      letter-spacing: 3px;
+    }
+    .logo img {
+      max-height: 40px;
+      width: auto;
+      object-fit: contain;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+    }
+    .nav-link {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-weight: 500;
+      opacity: 0.8;
+      transition: all 0.3s ease;
+      position: relative;
+      padding: 6px 0;
+    }
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 1px;
+      background-color: var(--accent-color);
+      transform: scaleX(0);
+      transform-origin: right;
+      transition: transform 0.3s ease;
+    }
+    .nav-link:hover {
+      opacity: 1;
+      color: var(--accent-color);
+    }
+    .nav-link:hover::after {
+      transform: scaleX(1);
+      transform-origin: left;
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    /* Mobile hamburger menu */
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      gap: 6px;
+      cursor: pointer;
+      z-index: 1001;
+    }
+    .menu-toggle span {
+      display: block;
+      width: 24px;
+      height: 1px;
+      background-color: var(--secondary-color);
+      transition: all 0.3s ease;
+    }
+
+    /* Mobile menu open state */
+    .menu-toggle.open span:nth-child(1) {
+      transform: translateY(7px) rotate(45deg);
+    }
+    .menu-toggle.open span:nth-child(2) {
+      opacity: 0;
+    }
+    .menu-toggle.open span:nth-child(3) {
+      transform: translateY(-7px) rotate(-45deg);
+    }
+
+    /* 2. Hero Section */
+    #hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 120px 0 60px 0;
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 48px;
+      align-items: center;
+    }
+    .hero-content {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      padding-right: 20px;
+    }
+    .hero-subtitle {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 4px;
+      color: var(--accent-color);
+      font-weight: 500;
+    }
+    .hero-title {
+      font-size: clamp(2.5rem, 5vw, 4.2rem);
+      line-height: 1.1;
+      font-weight: 300;
+      margin: 0;
+    }
+    .hero-description {
+      font-size: 1.1rem;
+      font-weight: 300;
+      opacity: 0.85;
+      max-width: 520px;
+    }
+    .hero-ctas {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-top: 12px;
+    }
+    .hero-img-container {
+      position: relative;
+      height: 60vh;
+      min-height: 450px;
+      border-radius: var(--border-radius);
+      overflow: hidden;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.06);
+    }
+    .hero-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transform: scale(1.02);
+      transition: transform 8s ease;
+    }
+    #hero:hover .hero-img {
+      transform: scale(1.06);
+    }
+
+    /* 3. About Section */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+    .about-content {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+    .about-title {
+      font-size: 2.8rem;
+      line-height: 1.15;
+    }
+    .about-description {
+      font-weight: 300;
+      font-size: 1.05rem;
+      opacity: 0.85;
+    }
+    .about-img-container {
+      position: relative;
+      border-radius: var(--border-radius);
+      overflow: hidden;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.04);
+    }
+    .about-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      aspect-ratio: 4/5;
+    }
+
+    /* 4. Statistics Counter */
+    #statistics {
+      background-color: var(--secondary-color);
+      color: var(--primary-color);
+      padding: 80px 0;
+    }
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 40px;
+      text-align: center;
+    }
+    .stat-item {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .stat-num {
+      font-family: var(--heading-font);
+      font-size: 3.5rem;
+      font-weight: 300;
+      color: var(--accent-color);
+    }
+    .stat-label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      opacity: 0.7;
+    }
+
+    /* 5. Services Section */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+      margin-top: 60px;
+    }
+    .services-header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    .services-header h2 {
+      font-size: 2.8rem;
+    }
+    .service-card {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      transition: all 0.4s ease;
+      min-height: 250px;
+    }
+    .service-card:hover {
+      transform: translateY(-5px);
+    }
+    .service-icon {
+      font-size: 2rem;
+      color: var(--accent-color);
+    }
+    .service-title {
+      font-size: 1.4rem;
+      font-weight: 400;
+    }
+    .service-desc {
+      font-size: 0.95rem;
+      font-weight: 300;
+      opacity: 0.8;
+    }
+
+    /* 6. Re-designed Featured Projects (Slideshow) */
+    .portfolio-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 60px;
+    }
+    .portfolio-header h2 {
+      font-size: 2.8rem;
+    }
+    .slider-outer {
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+      border-radius: var(--border-radius);
+      box-shadow: 0 30px 60px rgba(0,0,0,0.06);
+    }
+    .slider-track {
+      display: flex;
+      transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+      width: 100%;
+    }
+    .slide {
+      min-width: 100%;
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      align-items: center;
+      background-color: var(--primary-color);
+      box-sizing: border-box;
+    }
+    .slide-img-container {
+      height: 65vh;
+      min-height: 450px;
+      overflow: hidden;
+    }
+    .slide-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.8s ease;
+    }
+    .slide-content {
+      padding: 60px 48px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    .slide-category {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      color: var(--accent-color);
+      font-weight: 500;
+    }
+    .slide-title {
+      font-size: 2.6rem;
+      line-height: 1.15;
+    }
+    .slide-desc {
+      font-size: 1rem;
+      font-weight: 300;
+      opacity: 0.85;
+      margin-bottom: 12px;
+    }
+    
+    /* Navigation Controls */
+    .slider-controls {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      margin-top: 30px;
+      justify-content: flex-end;
+    }
+    .slider-arrow {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      border: 1px solid var(--secondary-color);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      background: transparent;
+      color: var(--secondary-color);
+    }
+    .slider-arrow:hover {
+      background-color: var(--secondary-color);
+      color: var(--primary-color);
+    }
+    .slider-arrow svg {
+      width: 20px;
+      height: 20px;
+      stroke-width: 1.5;
+    }
+    .slider-dots {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+    .slider-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background-color: rgba(42, 36, 33, 0.2);
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    .slider-dot.active {
+      background-color: var(--accent-color);
+      transform: scale(1.3);
+    }
+
+    /* 7. Team Section */
+    .team-header {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+    .team-header h2 {
+      font-size: 2.8rem;
+    }
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+    }
+    .team-card {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+    .team-img-wrap {
+      position: relative;
+      overflow: hidden;
+      border-radius: var(--border-radius);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+    }
+    .team-img {
+      width: 100%;
+      aspect-ratio: 3/4;
+      object-fit: cover;
+      transition: transform 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
+    }
+    .team-card:hover .team-img {
+      transform: scale(1.05);
+    }
+    .team-info {
+      text-align: center;
+      padding: 10px 0;
+    }
+    .team-name {
+      font-size: 1.4rem;
+      font-weight: 400;
+      margin-bottom: 4px;
+    }
+    .team-role {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      opacity: 0.6;
+    }
+
+    /* 8. Testimonials Section */
+    .testimonials-header {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+    .testimonials-header h2 {
+      font-size: 2.8rem;
+    }
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 32px;
+    }
+    .testimonial-card {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 260px;
+    }
+    .test-text {
+      font-size: 1.1rem;
+      font-style: italic;
+      font-weight: 300;
+      opacity: 0.9;
+    }
+    .test-meta {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-top: 24px;
+    }
+    .test-photo {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+    .test-info h4 {
+      font-size: 1.1rem;
+      font-weight: 400;
+    }
+    .test-info span {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      opacity: 0.5;
+      letter-spacing: 1px;
+    }
+
+    /* 9. FAQ Section */
+    .faq-header {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+    .faq-header h2 {
+      font-size: 2.8rem;
+    }
+    .faq-container {
+      max-width: 800px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .faq-item {
+      border-bottom: 1px solid rgba(42, 36, 33, 0.1);
+      padding-bottom: 16px;
+    }
+    .faq-question {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 0;
+      cursor: pointer;
+      font-family: var(--heading-font);
+      font-size: 1.3rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transition: color 0.3s ease;
+    }
+    .faq-question:hover {
+      color: var(--accent-color);
+    }
+    .faq-icon {
+      font-size: 1.5rem;
+      font-weight: 300;
+      transition: transform 0.3s ease;
+    }
+    .faq-item.active .faq-icon {
+      transform: rotate(45deg);
+    }
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s cubic-bezier(0.25, 1, 0.5, 1), padding 0.3s ease;
+      font-size: 0.95rem;
+      font-weight: 300;
+      opacity: 0.85;
+      padding: 0;
+    }
+    .faq-item.active .faq-answer {
+      max-height: 300px; /* arbitrary height to slide down */
+      padding: 8px 0 16px 0;
+    }
+
+    /* 10. Contact Section */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.1fr;
+      gap: 80px;
+      align-items: flex-start;
+    }
+    .contact-info {
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+    }
+    .contact-title {
+      font-size: 2.8rem;
+      line-height: 1.15;
+    }
+    .contact-list {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+    .contact-item {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .contact-label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      opacity: 0.5;
+    }
+    .contact-value {
+      font-family: var(--heading-font);
+      font-size: 1.5rem;
+      font-weight: 300;
+    }
+    .contact-value a:hover {
+      color: var(--accent-color);
+    }
+    .contact-socials {
+      display: flex;
+      gap: 20px;
+      margin-top: 10px;
+    }
+    .social-link {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-weight: 500;
+      position: relative;
+    }
+    .social-link::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 100%;
+      height: 1px;
+      background-color: var(--secondary-color);
+      transform: scaleX(0);
+      transform-origin: right;
+      transition: transform 0.3s ease;
+    }
+    .social-link:hover::after {
+      transform: scaleX(1);
+      transform-origin: left;
+    }
+
+    /* Contact Form */
+    .contact-form-container {
+      padding-top: 20px;
+    }
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .form-label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-weight: 500;
+      opacity: 0.7;
+    }
+    .form-input {
+      background: transparent;
+      border: none;
+      border-bottom: 1px solid rgba(42, 36, 33, 0.15);
+      padding: 12px 0;
+      font-family: var(--body-font);
+      font-size: 1rem;
+      color: var(--text-color);
+      outline: none;
+      transition: border-color 0.3s ease;
+    }
+    .form-input:focus {
+      border-color: var(--accent-color);
+    }
+    textarea.form-input {
+      resize: none;
+      height: 100px;
+    }
+
+    /* 11. Footer */
+    footer {
+      background-color: var(--secondary-color);
+      color: var(--primary-color);
+      padding: 40px 0;
+      font-size: 0.8rem;
+      border-top: 1px solid rgba(255,255,255,0.05);
+    }
+    .footer-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .footer-copy {
+      opacity: 0.6;
+      letter-spacing: 1px;
+    }
+    .footer-socials {
+      display: flex;
+      gap: 24px;
+      opacity: 0.8;
+    }
+
+    /* Scroll Reveal Animation Styles */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 1s cubic-bezier(0.25, 1, 0.5, 1), transform 1s cubic-bezier(0.25, 1, 0.5, 1);
+    }
+    .reveal.reveal-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Responsive Styles (Breakpoints matching hello-elementor themes) */
+    @media (max-width: 1024px) {
+      section {
+        padding: 90px 0;
+      }
+      .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        text-align: center;
+      }
+      .hero-content {
+        align-items: center;
+        padding-right: 0;
+      }
+      .hero-description {
+        margin: 0 auto;
+      }
+      .hero-img-container {
+        height: 50vh;
+        min-height: 350px;
+      }
+      .about-grid {
+        grid-template-columns: 1fr;
+        gap: 48px;
+      }
+      .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .team-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+      .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 60px;
+      }
+    }
+
+    @media (max-width: 767px) {
+      section {
+        padding: 60px 0;
+      }
+      .nav-links {
+        display: none;
+        position: fixed;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        background-color: var(--bg-color);
+        flex-direction: column;
+        padding: 40px 24px;
+        gap: 24px;
+        box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+        border-bottom: 1px solid rgba(0,0,0,0.05);
+      }
+      .nav-links.open {
+        display: flex;
+      }
+      .menu-toggle {
+        display: flex;
+      }
+      .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+      }
+      .services-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+      .slide {
+        grid-template-columns: 1fr;
+      }
+      .slide-img-container {
+        height: 40vh;
+        min-height: 250px;
+      }
+      .slide-content {
+        padding: 30px 24px;
+      }
+      .team-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+      .footer-container {
+        flex-direction: column;
+        gap: 16px;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation Header -->
+  <header>
+    <div class="container nav-container">
+      <a href="#" class="logo" id="nav-logo-link">
+        <!-- Logo populated dynamically or via template -->
+        <span id="nav-logo-text">{{COMPANY_NAME}}</span>
+      </a>
+      
+      <nav class="nav-links" id="navbar-menu">
+        <a href="#" class="nav-link">Home</a>
+        <a href="#about" class="nav-link">About</a>
+        <a href="#services" class="nav-link">Services</a>
+        <a href="#portfolio" class="nav-link">Portfolio</a>
+        <a href="#team" class="nav-link">Team</a>
+        <a href="#contact" class="nav-link">Contact</a>
+      </nav>
+
+      <div class="nav-right">
+        <a href="#contact" class="btn btn-outline" id="nav-cta-btn" style="padding: 8px 16px; font-size: 0.75rem;">{{PRIMARY_CTA}}</a>
+        <div class="menu-toggle" id="mobile-toggle">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+    <!-- Hero Section -->
+    <section id="hero">
+      <div class="container hero-grid">
+        <div class="hero-content reveal">
+          <span class="hero-subtitle">{{HERO_SUBTITLE}}</span>
+          <h1 class="hero-title">{{HERO_TITLE}}</h1>
+          <p class="hero-description">{{ABOUT_DESCRIPTION}}</p>
+          <div class="hero-ctas">
+            <a href="#contact" class="btn btn-filled">{{PRIMARY_CTA}}</a>
+            <a href="#portfolio" class="btn btn-underline">{{SECONDARY_CTA}}</a>
+          </div>
+        </div>
+        <div class="hero-img-container reveal" style="transition-delay: 0.2s;">
+          <img src="{{HERO_IMAGE}}" alt="Luxury Living Room Interior" class="hero-img" id="hero-element-img">
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+      <div class="container about-grid">
+        <div class="about-img-container reveal">
+          <img src="{{ABOUT_IMAGE}}" alt="Architectural Detail" class="about-img" id="about-element-img">
+        </div>
+        <div class="about-content reveal" style="transition-delay: 0.2s;">
+          <span class="hero-subtitle">Our Philosophy</span>
+          <h2 class="about-title">{{ABOUT_TITLE}}</h2>
+          <p class="about-description">{{ABOUT_DESCRIPTION}}</p>
+          <div>
+            <a href="#contact" class="btn btn-outline">{{PRIMARY_CTA}}</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Statistics Section -->
+    <section id="statistics">
+      <div class="container stats-grid reveal">
+        <div class="stat-item">
+          <span class="stat-num" id="stat-years">{{YEARS_EXPERIENCE}}</span>
+          <span class="stat-label">Years of Experience</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-num" id="stat-projects">{{PROJECTS_COMPLETED}}</span>
+          <span class="stat-label">Projects Completed</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-num" id="stat-clients">{{CLIENTS_SERVED}}</span>
+          <span class="stat-label">Clients Served</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-num" id="stat-awards">{{AWARDS}}</span>
+          <span class="stat-label">Design Awards</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services">
+      <div class="container">
+        <div class="services-header reveal">
+          <span class="hero-subtitle">What We Do</span>
+          <h2>Our Services</h2>
+        </div>
+        <div class="services-grid" id="services-container">
+          <!-- Dynamically Populated -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Portfolio / Slideshow Section -->
+    <section id="portfolio">
+      <div class="container">
+        <div class="portfolio-header reveal">
+          <div>
+            <span class="hero-subtitle">Selected Work</span>
+            <h2>Featured Projects</h2>
+          </div>
+          <div class="slider-controls">
+            <button class="slider-arrow" id="slide-prev" aria-label="Previous project">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
+              </svg>
+            </button>
+            <div class="slider-dots" id="slider-dots-container">
+              <!-- Dots added by JS -->
+            </div>
+            <button class="slider-arrow" id="slide-next" aria-label="Next project">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+              </svg>
+            </button>
+          </div>
+        </div>
+        
+        <div class="slider-outer reveal" style="transition-delay: 0.1s;">
+          <div class="slider-track" id="slider-track-el">
+            <!-- Dynamic Slides Rendered Here -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Team Section -->
+    <section id="team">
+      <div class="container">
+        <div class="team-header reveal">
+          <span class="hero-subtitle">People</span>
+          <h2>Our Creative Team</h2>
+        </div>
+        <div class="team-grid" id="team-container">
+          <!-- Dynamically Populated -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials">
+      <div class="container">
+        <div class="testimonials-header reveal">
+          <span class="hero-subtitle">Client Feedback</span>
+          <h2>What They Say</h2>
+        </div>
+        <div class="testimonials-grid" id="testimonials-container">
+          <!-- Dynamically Populated -->
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq">
+      <div class="container">
+        <div class="faq-header reveal">
+          <span class="hero-subtitle">Help</span>
+          <h2>Frequently Asked Questions</h2>
+        </div>
+        <div class="faq-container" id="faq-container-el">
+          <!-- Dynamically Populated -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+      <div class="container contact-grid">
+        <div class="contact-info reveal">
+          <span class="hero-subtitle">Inquire</span>
+          <h2 class="contact-title">Let's Create Your Space</h2>
+          
+          <div class="contact-list">
+            <div class="contact-item">
+              <span class="contact-label">Call Us</span>
+              <span class="contact-value"><a href="tel:{{PHONE}}" id="contact-phone-el">{{PHONE}}</a></span>
+            </div>
+            <div class="contact-item">
+              <span class="contact-label">Email Us</span>
+              <span class="contact-value"><a href="mailto:{{EMAIL}}" id="contact-email-el">{{EMAIL}}</a></span>
+            </div>
+            <div class="contact-item">
+              <span class="contact-label">Visit Us</span>
+              <span class="contact-value"><a href="{{GOOGLE_MAP}}" target="_blank" id="contact-address-el">{{ADDRESS}}</a></span>
+            </div>
+          </div>
+          
+          <div class="contact-socials" id="social-icons-container">
+            <!-- Social links populated dynamically -->
+          </div>
+        </div>
+        
+        <div class="contact-form-container reveal" style="transition-delay: 0.2s;">
+          <form class="contact-form" onsubmit="event.preventDefault(); alert('Message sent successfully!');">
+            <div class="form-group">
+              <label class="form-label" for="form-name">Name</label>
+              <input type="text" id="form-name" class="form-input" required placeholder="Your Name">
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="form-email">Email</label>
+              <input type="email" id="form-email" class="form-input" required placeholder="Your Email">
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="form-message">Message</label>
+              <textarea id="form-message" class="form-input" required placeholder="Tell us about your project..."></textarea>
+            </div>
+            <div>
+              <button type="submit" class="btn btn-filled">{{PRIMARY_CTA}}</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer Section -->
+  <footer id="footer">
+    <div class="container footer-container">
+      <div class="footer-copy" id="footer-copy-text">
+        {{COPYRIGHT_TEXT}}
+      </div>
+      <div class="footer-socials" id="footer-socials-container">
+        <!-- Dyn links -->
+      </div>
+    </div>
+  </footer>
+
+  <!-- Centralized Site Configuration & Rendering Engine -->
+  <script id="site-config">
+    // CENTRALIZED TEMPLATE CONFIGURATION (User edits this block only)
+    window.SITE_CONFIG = {
+      // 1. Theme Configuration
+      theme: {
+        primaryColor: "#f5f2eb",      // Light Cream Background
+        secondaryColor: "#2a2421",    // Dark Charcoal/Bronze Text
+        accentColor: "#9c7443",       // Rich Gold Accent
+        backgroundColor: "#f5f2eb",   // Page Background Color
+        textColor: "#2a2421",         // Body Text Color
+        headingFont: "'Cormorant Garamond', serif",
+        bodyFont: "'Outfit', sans-serif",
+        borderRadius: "8px",          // Corner roundness of cards and images
+        buttonStyle: "filled",        // "filled", "outline", "underline"
+        cardStyle: "glassmorphism"    // "plain", "border", "glassmorphism"
+      },
+      
+      // 2. Section Show/Hide Toggles
+      sections: {
+        hero: true,
+        about: true,
+        statistics: true,
+        services: true,
+        portfolio: true,
+        team: true,
+        testimonials: true,
+        faq: true,
+        contact: true,
+        footer: true
+      },
+      
+      // 3. Dynamic Business Details (Branding, Links, Meta)
+      brand: {
+        companyName: "{{COMPANY_NAME}}",
+        tagline: "{{TAGLINE}}",
+        logo: "{{LOGO}}", // URL to logo image file, falls back to text if empty
+        favicon: "{{FAVICON}}"
+      },
+      
+      contact: {
+        phone: "{{PHONE}}",
+        email: "{{EMAIL}}",
+        address: "{{ADDRESS}}",
+        whatsapp: "{{WHATSAPP}}",
+        instagram: "{{INSTAGRAM}}",
+        facebook: "{{FACEBOOK}}",
+        linkedin: "{{LINKEDIN}}",
+        googleMap: "{{GOOGLE_MAP}}"
+      },
+
+      ctas: {
+        primaryCta: "{{PRIMARY_CTA}}",
+        secondaryCta: "{{SECONDARY_CTA}}",
+        bookingLink: "{{BOOKING_LINK}}"
+      },
+      
+      // 4. Content Block Declarations
+      hero: {
+        image: "{{HERO_IMAGE}}",
+        title: "{{HERO_TITLE}}",
+        subtitle: "{{HERO_SUBTITLE}}"
+      },
+      
+      about: {
+        image: "{{ABOUT_IMAGE}}",
+        title: "{{ABOUT_TITLE}}",
+        description: "{{ABOUT_DESCRIPTION}}"
+      },
+      
+      statistics: {
+        yearsExperience: "{{YEARS_EXPERIENCE}}",
+        projectsCompleted: "{{PROJECTS_COMPLETED}}",
+        clientsServed: "{{CLIENTS_SERVED}}",
+        awards: "{{AWARDS}}"
+      },
+      
+      services: [
+        { icon: "✨", title: "{{SERVICE_1}}", description: "Bespoke high-end spatial curation tailored exclusively to align with your personal vision and aesthetic values." },
+        { icon: "🏛️", title: "{{SERVICE_2}}", description: "Comprehensive structural layout coordination, blueprint design, and site design blueprints mapped from sketch to structure." },
+        { icon: "🏺", title: "{{SERVICE_3}}", description: "Exquisite selections of refined furniture textures, artisanal materials, lighting fixtures, and custom draperies." },
+        { icon: "🪴", title: "{{SERVICE_4}}", description: "Curating botanical features, courtyards, and integrated natural elements to blur lines between inside and outside." },
+        { icon: "📐", title: "{{SERVICE_5}}", description: "Strategic styling updates, art curation, and decorative element placement to elevate existing living structures." },
+        { icon: "🛡️", title: "{{SERVICE_6}}", description: "End-to-end site supervisor oversight, contractor synchronization, and schedule compliance to ensure timely handoffs." }
+      ],
+      
+      projects: [
+        {
+          image: "{{PROJECT_IMAGE_1}}",
+          title: "{{PROJECT_TITLE_1}}",
+          category: "{{PROJECT_CATEGORY_1}}",
+          description: "{{PROJECT_DESCRIPTION_1}}"
+        },
+        {
+          image: "{{PROJECT_IMAGE_2}}",
+          title: "{{PROJECT_TITLE_2}}",
+          category: "{{PROJECT_CATEGORY_2}}",
+          description: "{{PROJECT_DESCRIPTION_2}}"
+        },
+        {
+          image: "{{PROJECT_IMAGE_3}}",
+          title: "{{PROJECT_TITLE_3}}",
+          category: "{{PROJECT_CATEGORY_3}}",
+          description: "{{PROJECT_DESCRIPTION_3}}"
+        }
+      ],
+      
+      testimonials: [
+        {
+          name: "{{CLIENT_NAME_1}}",
+          role: "{{CLIENT_ROLE_1}}",
+          photo: "{{CLIENT_PHOTO_1}}",
+          review: "{{CLIENT_REVIEW_1}}"
+        },
+        {
+          name: "{{CLIENT_NAME_2}}",
+          role: "{{CLIENT_ROLE_2}}",
+          photo: "{{CLIENT_PHOTO_2}}",
+          review: "{{CLIENT_REVIEW_2}}"
+        }
+      ],
+      
+      team: [
+        {
+          image: "{{TEAM_MEMBER_IMAGE_1}}",
+          name: "{{TEAM_MEMBER_NAME_1}}",
+          role: "{{TEAM_MEMBER_ROLE_1}}"
+        },
+        {
+          image: "{{TEAM_MEMBER_IMAGE_2}}",
+          name: "{{TEAM_MEMBER_NAME_2}}",
+          role: "{{TEAM_MEMBER_ROLE_2}}"
+        },
+        {
+          image: "{{TEAM_MEMBER_IMAGE_3}}",
+          name: "{{TEAM_MEMBER_NAME_3}}",
+          role: "{{TEAM_MEMBER_ROLE_3}}"
+        }
+      ],
+
+      faqs: [
+        { question: "What is your typical project timeline?", answer: "Residential space projects generally take between 8 to 16 weeks depending on scale, custom fabrication details, and material logistics. We provide detailed timelines prior to start." },
+        { question: "Do you offer layout consultations before signing?", answer: "Yes, we conduct initial diagnostic walkthroughs to align design preferences and establish preliminary spatial budgets before formalizing a layout contract." },
+        { question: "Can you collaborate with our builders/contractors?", answer: "Absolutely. We routinely synchronize details directly with construction managers and site engineers to ensure plan fidelity and seamless execution." }
+      ],
+      
+      footer: {
+        copyrightText: "{{COPYRIGHT_TEXT}}"
+      }
+    };
+
+    // CORE RENDERING ENGINE (Binds window.SITE_CONFIG variables to DOM structures)
+    document.addEventListener("DOMContentLoaded", () => {
+      const config = window.SITE_CONFIG;
+
+      // 1. Apply Dynamic Colors & Styles to Document Root
+      const styleRoot = document.documentElement;
+      styleRoot.style.setProperty('--primary-color', config.theme.primaryColor);
+      styleRoot.style.setProperty('--secondary-color', config.theme.secondaryColor);
+      styleRoot.style.setProperty('--accent-color', config.theme.accentColor);
+      styleRoot.style.setProperty('--bg-color', config.theme.backgroundColor);
+      styleRoot.style.setProperty('--text-color', config.theme.textColor);
+      styleRoot.style.setProperty('--heading-font', config.theme.headingFont);
+      styleRoot.style.setProperty('--body-font', config.theme.bodyFont);
+      styleRoot.style.setProperty('--border-radius', config.theme.borderRadius);
+
+      // Apply button style overrides globally
+      document.querySelectorAll(".btn").forEach(btn => {
+        // Clear default classes, then apply configured style
+        btn.classList.remove("btn-filled", "btn-outline", "btn-underline");
+        btn.classList.add(`btn-${config.theme.buttonStyle}`);
+      });
+
+      // 2. Hide/Show Sections based on switches
+      for (const [sectionId, isVisible] of Object.entries(config.sections)) {
+        const sectionEl = document.getElementById(sectionId);
+        if (sectionEl) {
+          if (isVisible) {
+            sectionEl.style.display = "";
+          } else {
+            sectionEl.style.display = "none";
+            // Also hide navigation link for this section
+            const navLink = document.querySelector(`.nav-link[href="#${sectionId}"]`);
+            if (navLink) navLink.style.display = "none";
+          }
+        }
+      }
+
+      // 3. Populate Header / Logo / CTAs
+      const navLogoText = document.getElementById("nav-logo-text");
+      const navLogoLink = document.getElementById("nav-logo-link");
+      if (config.brand.logo && config.brand.logo !== "{{LOGO}}") {
+        navLogoLink.innerHTML = `<img src="${config.brand.logo}" alt="${config.brand.companyName}">`;
+      } else {
+        navLogoText.textContent = config.brand.companyName;
+      }
+      
+      const navCtaBtn = document.getElementById("nav-cta-btn");
+      if (navCtaBtn) {
+        navCtaBtn.textContent = config.ctas.primaryCta;
+        if (config.ctas.bookingLink) navCtaBtn.href = config.ctas.bookingLink;
+      }
+
+      // 4. Render Services
+      const servicesContainer = document.getElementById("services-container");
+      if (servicesContainer) {
+        servicesContainer.innerHTML = config.services.map(service => `
+          <div class="service-card card-${config.theme.cardStyle} reveal">
+            <div class="service-icon">${service.icon}</div>
+            <h3 class="service-title">${service.title}</h3>
+            <p class="service-desc">${service.description}</p>
+          </div>
+        `).join("");
+      }
+
+      // 5. Render Testimonials
+      const testimonialsContainer = document.getElementById("testimonials-container");
+      if (testimonialsContainer) {
+        testimonialsContainer.innerHTML = config.testimonials.map(test => `
+          <div class="testimonial-card card-${config.theme.cardStyle} reveal">
+            <p class="test-text">"${test.review}"</p>
+            <div class="test-meta">
+              ${test.photo ? `<img src="${test.photo}" alt="${test.name}" class="test-photo">` : ''}
+              <div class="test-info">
+                <h4>${test.name}</h4>
+                <span>${test.role}</span>
+              </div>
+            </div>
+          </div>
+        `).join("");
+      }
+
+      // 6. Render FAQs (Collapsible Accordion)
+      const faqContainerEl = document.getElementById("faq-container-el");
+      if (faqContainerEl) {
+        faqContainerEl.innerHTML = config.faqs.map(faq => `
+          <div class="faq-item reveal">
+            <div class="faq-question">
+              <span>${faq.question}</span>
+              <span class="faq-icon">+</span>
+            </div>
+            <div class="faq-answer">
+              <p>${faq.answer}</p>
+            </div>
+          </div>
+        `).join("");
+
+        // Setup accordion click handlers
+        faqContainerEl.querySelectorAll(".faq-question").forEach(question => {
+          question.addEventListener("click", () => {
+            const item = question.parentElement;
+            const isActive = item.classList.contains("active");
+            
+            // Close all other FAQ items
+            faqContainerEl.querySelectorAll(".faq-item").forEach(i => i.classList.remove("active"));
+            
+            // Toggle clicked item
+            if (!isActive) {
+              item.classList.add("active");
+            }
+          });
+        });
+      }
+
+      // 7. Render Team cards
+      const teamContainer = document.getElementById("team-container");
+      if (teamContainer) {
+        teamContainer.innerHTML = config.team.map((member, idx) => `
+          <div class="team-card reveal" style="transition-delay: ${idx * 0.1}s;">
+            <div class="team-img-wrap">
+              <img src="${member.image}" alt="${member.name}" class="team-img">
+            </div>
+            <div class="team-info">
+              <h3 class="team-name">${member.name}</h3>
+              <span class="team-role">${member.role}</span>
+            </div>
+          </div>
+        `).join("");
+      }
+
+      // 8. Render Social Icons
+      const socialContainer = document.getElementById("social-icons-container");
+      const footerSocialContainer = document.getElementById("footer-socials-container");
+      const socialsList = [
+        { name: "Instagram", url: config.contact.instagram },
+        { name: "Facebook", url: config.contact.facebook },
+        { name: "LinkedIn", url: config.contact.linkedin },
+        { name: "WhatsApp", url: config.contact.whatsapp }
+      ].filter(s => s.url && s.url !== `{{${s.name.toUpperCase()}}}`);
+
+      const socialsHtml = socialsList.map(s => `
+        <a href="${s.url}" target="_blank" rel="noopener noreferrer" class="social-link">${s.name}</a>
+      `).join("");
+
+      if (socialContainer) socialContainer.innerHTML = socialsHtml;
+      if (footerSocialContainer) footerSocialContainer.innerHTML = socialsHtml;
+
+      // 9. Render Footer Copyright
+      const footerCopyText = document.getElementById("footer-copy-text");
+      if (footerCopyText) footerCopyText.textContent = config.footer.copyrightText;
+
+      // 10. Implement Custom Project Slider
+      const sliderTrack = document.getElementById("slider-track-el");
+      const dotsContainer = document.getElementById("slider-dots-container");
+      
+      if (sliderTrack && config.projects && config.projects.length > 0) {
+        // Render Slides
+        sliderTrack.innerHTML = config.projects.map(proj => `
+          <div class="slide">
+            <div class="slide-img-container">
+              <img src="${proj.image}" alt="${proj.title}" class="slide-img">
+            </div>
+            <div class="slide-content">
+              <span class="slide-category">${proj.category}</span>
+              <h3 class="slide-title">${proj.title}</h3>
+              <p class="slide-desc">${proj.description}</p>
+              <div>
+                <a href="#contact" class="btn btn-underline">Inquire Project</a>
+              </div>
+            </div>
+          </div>
+        `).join("");
+
+        // Render Navigation Dots
+        dotsContainer.innerHTML = config.projects.map((_, idx) => `
+          <div class="slider-dot ${idx === 0 ? 'active' : ''}" data-index="${idx}"></div>
+        `).join("");
+
+        // Setup Slider States & Controls
+        let currentIndex = 0;
+        const slidesCount = config.projects.length;
+        const dots = dotsContainer.querySelectorAll(".slider-dot");
+
+        function goToSlide(index) {
+          if (index < 0) index = slidesCount - 1;
+          if (index >= slidesCount) index = 0;
+          
+          currentIndex = index;
+          sliderTrack.style.transform = `translateX(-${currentIndex * 100}%)`;
+          
+          // Update active dot
+          dots.forEach(dot => dot.classList.remove("active"));
+          dots[currentIndex].classList.add("active");
+        }
+
+        // Arrow Clicks
+        document.getElementById("slide-prev").addEventListener("click", () => goToSlide(currentIndex - 1));
+        document.getElementById("slide-next").addEventListener("click", () => goToSlide(currentIndex + 1));
+
+        // Dot Clicks
+        dots.forEach(dot => {
+          dot.addEventListener("click", () => {
+            const index = parseInt(dot.getAttribute("data-index"));
+            goToSlide(index);
+          });
+        });
+
+        // Touch / Swipe support for Mobile
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        sliderTrack.addEventListener("touchstart", (e) => {
+          touchStartX = e.changedTouches[0].screenX;
+        }, { passive: true });
+
+        sliderTrack.addEventListener("touchend", (e) => {
+          touchEndX = e.changedTouches[0].screenX;
+          handleSwipe();
+        }, { passive: true });
+
+        function handleSwipe() {
+          const threshold = 50; // min distance in pixels
+          if (touchStartX - touchEndX > threshold) {
+            // Swipe Left -> Next Slide
+            goToSlide(currentIndex + 1);
+          } else if (touchEndX - touchStartX > threshold) {
+            // Swipe Right -> Prev Slide
+            goToSlide(currentIndex - 1);
+          }
+        }
+      }
+
+      // 11. Intersection Observer for Scroll Reveals
+      const observerOptions = {
+        root: null,
+        rootMargin: "0px",
+        threshold: 0.15
+      };
+
+      const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("reveal-visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      }, observerOptions);
+
+      // We observe reveal elements dynamically
+      setTimeout(() => {
+        document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
+      }, 100);
+
+      // 12. Mobile Nav Menu Toggle
+      const mobileToggle = document.getElementById("mobile-toggle");
+      const navbarMenu = document.getElementById("navbar-menu");
+      if (mobileToggle && navbarMenu) {
+        mobileToggle.addEventListener("click", () => {
+          mobileToggle.classList.toggle("open");
+          navbarMenu.classList.toggle("open");
+        });
+
+        // Close menu on link clicks
+        navbarMenu.querySelectorAll(".nav-link").forEach(link => {
+          link.addEventListener("click", () => {
+            mobileToggle.classList.remove("open");
+            navbarMenu.classList.remove("open");
+          });
+        });
+      }
+
+      // Add scroll styling to header
+      window.addEventListener("scroll", () => {
+        const header = document.querySelector("header");
+        if (window.scrollY > 50) {
+          header.classList.add("scrolled");
+        } else {
+          header.classList.remove("scrolled");
+        }
+      });
+    });
+  </script>
+</body>
+</html>
