@@ -201,7 +201,7 @@
       max-width: 60%;
     }
     .logo img {
-      max-height: 40px;
+      max-height: 60px;
       width: auto;
       object-fit: contain;
     }
@@ -1873,6 +1873,12 @@
         floatingInstaBtn.href = config.contact.instagram;
       }
 
+      // Bind floating CTA WhatsApp link
+      const floatingWhatsAppBtn = document.getElementById("floating-whatsapp-btn");
+      if (floatingWhatsAppBtn && config.contact.whatsapp && !config.contact.whatsapp.includes("{{")) {
+        floatingWhatsAppBtn.href = config.contact.whatsapp;
+      }
+
       // Add scroll styling to header
       window.addEventListener("scroll", () => {
         const header = document.querySelector("header");
@@ -1887,7 +1893,7 @@
 
   <!-- Floating CTAs -->
   <div class="floating-ctas">
-    <a href="https://wa.me/6263952434" target="_blank" rel="noopener noreferrer" class="floating-btn whatsapp-btn" aria-label="Chat on WhatsApp">
+    <a href="https://wa.me/6263952434" target="_blank" rel="noopener noreferrer" class="floating-btn whatsapp-btn" id="floating-whatsapp-btn" aria-label="Chat on WhatsApp">
       <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
         <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.003 5.324 5.328 0 11.859 0c3.166.001 6.141 1.233 8.377 3.469 2.235 2.237 3.465 5.212 3.464 8.384-.003 6.535-5.328 11.86-11.859 11.86-2.007-.001-3.98-.51-5.734-1.482L0 24zm6.59-4.846c1.6.95 3.188 1.449 4.725 1.45 5.275 0 9.569-4.292 9.572-9.566.001-2.553-1.002-4.955-2.825-6.779-1.82-1.823-4.232-2.826-6.78-2.828-5.278 0-9.577 4.293-9.58 9.569-.001 1.636.441 3.238 1.285 4.673l-.997 3.639 3.73-.978zM17.159 14c-.284-.142-1.68-.83-1.943-.925-.263-.096-.456-.142-.648.142-.19.283-.739.925-.907 1.114-.167.189-.335.213-.618.071-.282-.142-1.193-.44-2.272-1.402-.84-.748-1.407-1.671-1.573-1.954-.166-.283-.018-.435.124-.576.128-.127.284-.33.426-.496.143-.165.19-.283.285-.472.095-.188.047-.353-.024-.495-.071-.142-.648-1.56-.887-2.132-.233-.561-.47-.485-.648-.495-.167-.008-.359-.01-.55-.01s-.502.072-.765.353c-.263.284-1.005.981-1.005 2.39 0 1.41 1.028 2.766 1.171 2.956.143.19 2.023 3.09 4.901 4.33.684.295 1.218.471 1.636.603.687.218 1.312.187 1.808.113.553-.083 1.68-.687 1.918-1.352.238-.665.238-1.236.167-1.352-.07-.117-.263-.189-.548-.331z"/>
       </svg>

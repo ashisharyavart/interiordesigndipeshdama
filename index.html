@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{{COMPANY_NAME}} - {{TAGLINE}}</title>
-  
+
   <!-- SEO Meta Tags -->
   <meta name="description" content="At {{COMPANY_NAME}}, we craft more than spaces — {{TAGLINE}}">
   <meta property="og:title" content="{{COMPANY_NAME}} - {{TAGLINE}}">
@@ -18,7 +19,9 @@
   <!-- Google Fonts Connection -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Outfit:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Outfit:wght@100;200;300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
 
   <style id="theme-styles">
     /* Core CSS variables (initialized dynamically by SITE_CONFIG) */
@@ -55,7 +58,12 @@
       text-decoration: none;
     }
 
-    h1, h2, h3, h4, h5, h6 {
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
       font-family: var(--heading-font);
       font-weight: 300;
       text-transform: uppercase;
@@ -87,7 +95,8 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      min-height: 48px; /* Touch target size optimization */
+      min-height: 48px;
+      /* Touch target size optimization */
       padding: 14px 28px;
       font-family: var(--body-font);
       font-size: 0.85rem;
@@ -105,6 +114,7 @@
       background-color: var(--secondary-color);
       color: var(--primary-color);
     }
+
     .btn-filled:hover {
       background-color: var(--accent-color);
       transform: translateY(-2px);
@@ -115,6 +125,7 @@
       border-color: var(--secondary-color);
       color: var(--secondary-color);
     }
+
     .btn-outline:hover {
       background-color: var(--secondary-color);
       color: var(--primary-color);
@@ -129,6 +140,7 @@
       color: var(--secondary-color);
       position: relative;
     }
+
     .btn-underline::after {
       content: '';
       position: absolute;
@@ -141,6 +153,7 @@
       transform-origin: left;
       transition: transform 0.4s ease;
     }
+
     .btn-underline:hover::after {
       transform: scaleX(1);
     }
@@ -151,12 +164,14 @@
       background: transparent;
       padding: 20px 0;
     }
+
     .card-border {
-      border: 1px solid rgba(0,0,0,0.08);
+      border: 1px solid rgba(0, 0, 0, 0.08);
       background-color: var(--primary-color);
       padding: 30px;
       border-radius: var(--border-radius);
     }
+
     .card-glassmorphism {
       background: rgba(255, 255, 255, 0.4);
       backdrop-filter: blur(12px);
@@ -179,9 +194,10 @@
       border-bottom: 1px solid rgba(42, 36, 33, 0.05);
       transition: all 0.3s ease;
     }
+
     header.scrolled {
       padding: 8px 0;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.02);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.02);
     }
 
     .nav-container {
@@ -200,8 +216,9 @@
       text-overflow: ellipsis;
       max-width: 60%;
     }
+
     .logo img {
-      max-height: 40px;
+      max-height: 60px;
       width: auto;
       object-fit: contain;
     }
@@ -221,10 +238,11 @@
       -webkit-backdrop-filter: blur(24px);
       padding: 100px 32px;
       gap: 28px;
-      box-shadow: -10px 0 40px rgba(0,0,0,0.08);
+      box-shadow: -10px 0 40px rgba(0, 0, 0, 0.08);
       z-index: 999;
       transition: right 0.4s cubic-bezier(0.25, 1, 0.5, 1);
     }
+
     .nav-links.open {
       right: 0;
     }
@@ -239,6 +257,7 @@
       padding: 10px 0;
       border-bottom: 1px solid rgba(42, 36, 33, 0.05);
     }
+
     .nav-link:hover {
       opacity: 1;
       color: var(--accent-color);
@@ -262,6 +281,7 @@
       z-index: 1001;
       align-items: center;
     }
+
     .menu-toggle span {
       display: block;
       width: 24px;
@@ -274,9 +294,11 @@
     .menu-toggle.open span:nth-child(1) {
       transform: translateY(8px) rotate(45deg);
     }
+
     .menu-toggle.open span:nth-child(2) {
       opacity: 0;
     }
+
     .menu-toggle.open span:nth-child(3) {
       transform: translateY(-8px) rotate(-45deg);
     }
@@ -288,6 +310,7 @@
       align-items: center;
       padding: 100px 0 60px 0;
     }
+
     .hero-grid {
       display: grid;
       grid-template-columns: 1fr;
@@ -295,12 +318,14 @@
       align-items: center;
       text-align: center;
     }
+
     .hero-content {
       display: flex;
       flex-direction: column;
       gap: 20px;
       align-items: center;
     }
+
     .hero-subtitle {
       font-size: 0.8rem;
       text-transform: uppercase;
@@ -308,18 +333,21 @@
       color: var(--accent-color);
       font-weight: 500;
     }
+
     .hero-title {
       font-size: clamp(2rem, 8vw, 3rem);
       line-height: 1.15;
       font-weight: 300;
       margin: 0;
     }
+
     .hero-description {
       font-size: 1rem;
       font-weight: 300;
       opacity: 0.85;
       max-width: 100%;
     }
+
     .hero-ctas {
       display: flex;
       flex-direction: column;
@@ -327,18 +355,21 @@
       gap: 12px;
       margin-top: 10px;
     }
+
     .hero-ctas .btn {
       width: 100%;
     }
+
     .hero-img-container {
       position: relative;
       height: 45vh;
       min-height: 300px;
       border-radius: var(--border-radius);
       overflow: hidden;
-      box-shadow: 0 20px 50px rgba(0,0,0,0.06);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.06);
       width: 100%;
     }
+
     .hero-slide {
       position: absolute;
       top: 0;
@@ -350,6 +381,7 @@
       transition: opacity 1.5s ease-in-out, transform 8s ease;
       transform: scale(1.02);
     }
+
     .hero-slide.active {
       opacity: 1;
       transform: scale(1.06);
@@ -363,6 +395,7 @@
       gap: 40px;
       align-items: center;
     }
+
     .about-content {
       display: flex;
       flex-direction: column;
@@ -370,22 +403,27 @@
       text-align: center;
       align-items: center;
     }
+
     .about-title {
       font-size: 2.2rem;
       line-height: 1.2;
     }
+
     .about-description {
       font-weight: 300;
       font-size: 1rem;
       opacity: 0.85;
     }
+
     .about-img-container {
       position: relative;
       border-radius: var(--border-radius);
       overflow: hidden;
-      box-shadow: 0 20px 40px rgba(0,0,0,0.04);
-      order: 2; /* Image goes below text on mobile stack */
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.04);
+      order: 2;
+      /* Image goes below text on mobile stack */
     }
+
     .about-img {
       width: 100%;
       height: auto;
@@ -399,23 +437,27 @@
       color: var(--primary-color);
       padding: 60px 0;
     }
+
     .stats-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       gap: 28px;
       text-align: center;
     }
+
     .stat-item {
       display: flex;
       flex-direction: column;
       gap: 6px;
     }
+
     .stat-num {
       font-family: var(--heading-font);
       font-size: 2.8rem;
       font-weight: 300;
       color: var(--accent-color);
     }
+
     .stat-label {
       font-size: 0.7rem;
       text-transform: uppercase;
@@ -430,13 +472,16 @@
       gap: 24px;
       margin-top: 40px;
     }
+
     .services-header {
       text-align: center;
       margin-bottom: 20px;
     }
+
     .services-header h2 {
       font-size: 2.2rem;
     }
+
     .service-card {
       display: flex;
       flex-direction: column;
@@ -445,14 +490,17 @@
       min-height: auto;
       padding: 24px;
     }
+
     .service-icon {
       font-size: 1.8rem;
       color: var(--accent-color);
     }
+
     .service-title {
       font-size: 1.25rem;
       font-weight: 400;
     }
+
     .service-desc {
       font-size: 0.9rem;
       font-weight: 300;
@@ -468,21 +516,25 @@
       margin-bottom: 30px;
       text-align: center;
     }
+
     .portfolio-header h2 {
       font-size: 2.2rem;
     }
+
     .slider-outer {
       position: relative;
       width: 100%;
       overflow: hidden;
       border-radius: var(--border-radius);
-      box-shadow: 0 20px 40px rgba(0,0,0,0.06);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.06);
     }
+
     .slider-track {
       display: flex;
       transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
       width: 100%;
     }
+
     .slide {
       min-width: 100%;
       display: grid;
@@ -490,16 +542,19 @@
       background-color: var(--primary-color);
       box-sizing: border-box;
     }
+
     .slide-img-container {
       height: 35vh;
       min-height: 240px;
       overflow: hidden;
     }
+
     .slide-img {
       width: 100%;
       height: 100%;
       object-fit: cover;
     }
+
     .slide-content {
       padding: 32px 24px;
       display: flex;
@@ -508,6 +563,7 @@
       text-align: center;
       align-items: center;
     }
+
     .slide-category {
       font-size: 0.75rem;
       text-transform: uppercase;
@@ -515,17 +571,19 @@
       color: var(--accent-color);
       font-weight: 500;
     }
+
     .slide-title {
       font-size: 1.8rem;
       line-height: 1.2;
     }
+
     .slide-desc {
       font-size: 0.95rem;
       font-weight: 300;
       opacity: 0.85;
       margin-bottom: 8px;
     }
-    
+
     /* Navigation Controls - Centered on Mobile */
     .slider-controls {
       display: flex;
@@ -534,6 +592,7 @@
       margin-top: 20px;
       justify-content: center;
     }
+
     .slider-arrow {
       width: 44px;
       height: 44px;
@@ -547,15 +606,18 @@
       background: transparent;
       color: var(--secondary-color);
     }
+
     .slider-arrow svg {
       width: 18px;
       height: 18px;
     }
+
     .slider-dots {
       display: flex;
       gap: 8px;
       align-items: center;
     }
+
     .slider-dot {
       width: 8px;
       height: 8px;
@@ -563,6 +625,7 @@
       background-color: rgba(42, 36, 33, 0.2);
       cursor: pointer;
     }
+
     .slider-dot.active {
       background-color: var(--accent-color);
       transform: scale(1.2);
@@ -573,9 +636,11 @@
       text-align: center;
       margin-bottom: 30px;
     }
+
     .team-header h2 {
       font-size: 2.2rem;
     }
+
     .team-grid {
       display: grid;
       grid-template-columns: 1fr;
@@ -584,30 +649,36 @@
       max-width: 340px;
       margin: 0 auto;
     }
+
     .team-card {
       display: flex;
       flex-direction: column;
       gap: 12px;
       overflow: hidden;
     }
+
     .team-img-wrap {
       position: relative;
       overflow: hidden;
       border-radius: var(--border-radius);
     }
+
     .team-img {
       width: 100%;
       aspect-ratio: 3/4;
       object-fit: cover;
     }
+
     .team-info {
       text-align: center;
       padding: 8px 0;
     }
+
     .team-name {
       font-size: 1.25rem;
       font-weight: 400;
     }
+
     .team-role {
       font-size: 0.75rem;
       text-transform: uppercase;
@@ -620,9 +691,11 @@
       text-align: center;
       margin-bottom: 30px;
     }
+
     .testimonials-header h2 {
       font-size: 2.2rem;
     }
+
     .testimonials-grid {
       display: flex;
       overflow-x: auto;
@@ -630,11 +703,15 @@
       gap: 20px;
       padding: 10px 0 20px 0;
       -webkit-overflow-scrolling: touch;
-      scrollbar-width: none; /* Hide standard scrollbar on Firefox */
+      scrollbar-width: none;
+      /* Hide standard scrollbar on Firefox */
     }
+
     .testimonials-grid::-webkit-scrollbar {
-      display: none; /* Hide scrollbar on Chrome/Safari */
+      display: none;
+      /* Hide scrollbar on Chrome/Safari */
     }
+
     .testimonial-card {
       flex: 0 0 85%;
       scroll-snap-align: start;
@@ -643,28 +720,33 @@
       justify-content: space-between;
       min-height: 240px;
     }
+
     .test-text {
       font-size: 1rem;
       font-style: italic;
       font-weight: 300;
       opacity: 0.9;
     }
+
     .test-meta {
       display: flex;
       align-items: center;
       gap: 12px;
       margin-top: 16px;
     }
+
     .test-photo {
       width: 44px;
       height: 44px;
       border-radius: 50%;
       object-fit: cover;
     }
+
     .test-info h4 {
       font-size: 1rem;
       font-weight: 400;
     }
+
     .test-info span {
       font-size: 0.7rem;
       text-transform: uppercase;
@@ -677,19 +759,23 @@
       text-align: center;
       margin-bottom: 30px;
     }
+
     .faq-header h2 {
       font-size: 2.2rem;
     }
+
     .faq-container {
       width: 100%;
       display: flex;
       flex-direction: column;
       gap: 12px;
     }
+
     .faq-item {
       border-bottom: 1px solid rgba(42, 36, 33, 0.08);
       padding-bottom: 12px;
     }
+
     .faq-question {
       display: flex;
       justify-content: space-between;
@@ -701,14 +787,17 @@
       text-transform: uppercase;
       letter-spacing: 1px;
     }
+
     .faq-icon {
       font-size: 1.3rem;
       font-weight: 300;
       transition: transform 0.3s ease;
     }
+
     .faq-item.active .faq-icon {
       transform: rotate(45deg);
     }
+
     .faq-answer {
       max-height: 0;
       overflow: hidden;
@@ -718,6 +807,7 @@
       opacity: 0.85;
       padding: 0;
     }
+
     .faq-item.active .faq-answer {
       max-height: 300px;
       padding: 4px 0 12px 0;
@@ -730,43 +820,51 @@
       gap: 48px;
       align-items: flex-start;
     }
+
     .contact-info {
       display: flex;
       flex-direction: column;
       gap: 32px;
     }
+
     .contact-title {
       font-size: 2.2rem;
       line-height: 1.2;
       text-align: center;
     }
+
     .contact-list {
       display: flex;
       flex-direction: column;
       gap: 20px;
     }
+
     .contact-item {
       display: flex;
       flex-direction: column;
       gap: 4px;
     }
+
     .contact-label {
       font-size: 0.7rem;
       text-transform: uppercase;
       letter-spacing: 2px;
       opacity: 0.5;
     }
+
     .contact-value {
       font-family: var(--heading-font);
       font-size: 1.35rem;
       font-weight: 300;
     }
+
     .contact-socials {
       display: flex;
       gap: 16px;
       margin-top: 4px;
       justify-content: center;
     }
+
     .social-link {
       font-size: 0.8rem;
       text-transform: uppercase;
@@ -784,11 +882,12 @@
       overflow: hidden;
       position: relative;
       background-color: #e5e0d8;
-      background-image: radial-gradient(circle, rgba(0,0,0,0.03) 1px, transparent 1px);
+      background-image: radial-gradient(circle, rgba(0, 0, 0, 0.03) 1px, transparent 1px);
       background-size: 20px 20px;
-      border: 1px solid rgba(0,0,0,0.05);
+      border: 1px solid rgba(0, 0, 0, 0.05);
       transition: border-color 0.3s ease;
     }
+
     .map-link-card::before {
       content: '📍';
       position: absolute;
@@ -798,6 +897,7 @@
       font-size: 1.8rem;
       z-index: 2;
     }
+
     .map-link-card::after {
       content: 'Kumaraswamy Layout, Bangalore';
       position: absolute;
@@ -813,6 +913,7 @@
       z-index: 2;
       opacity: 0.8;
     }
+
     .map-overlay {
       position: absolute;
       top: 0;
@@ -826,6 +927,7 @@
       transition: all 0.3s ease;
       z-index: 3;
     }
+
     .map-overlay span {
       background-color: var(--secondary-color);
       color: var(--primary-color);
@@ -834,13 +936,16 @@
       text-transform: uppercase;
       letter-spacing: 1px;
       border-radius: 4px;
-      opacity: 1; /* Keep map link tap label visible on touchscreens */
+      opacity: 1;
+      /* Keep map link tap label visible on touchscreens */
       transform: translateY(0);
       transition: all 0.3s ease;
     }
+
     .map-link-card:hover .map-overlay {
       background: rgba(42, 36, 33, 0.4);
     }
+
     .map-link-card:hover .map-overlay span {
       opacity: 1;
       transform: translateY(0);
@@ -850,16 +955,19 @@
     .contact-form-container {
       padding-top: 10px;
     }
+
     .contact-form {
       display: flex;
       flex-direction: column;
       gap: 20px;
     }
+
     .form-group {
       display: flex;
       flex-direction: column;
       gap: 6px;
     }
+
     .form-label {
       font-size: 0.7rem;
       text-transform: uppercase;
@@ -867,6 +975,7 @@
       font-weight: 500;
       opacity: 0.7;
     }
+
     .form-input {
       background: transparent;
       border: none;
@@ -878,6 +987,7 @@
       outline: none;
       border-radius: 0;
     }
+
     textarea.form-input {
       resize: none;
       height: 80px;
@@ -889,8 +999,9 @@
       color: var(--primary-color);
       padding: 32px 0;
       font-size: 0.75rem;
-      border-top: 1px solid rgba(255,255,255,0.05);
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
     }
+
     .footer-container {
       display: flex;
       flex-direction: column;
@@ -899,10 +1010,12 @@
       gap: 16px;
       text-align: center;
     }
+
     .footer-copy {
       opacity: 0.6;
       letter-spacing: 1px;
     }
+
     .footer-socials {
       display: flex;
       gap: 20px;
@@ -919,26 +1032,32 @@
       gap: 10px;
       z-index: 999;
     }
+
     .floating-btn {
-      width: 48px; /* Safe touchscreen tap target */
+      width: 48px;
+      /* Safe touchscreen tap target */
       height: 48px;
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
       transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
       color: #fff;
     }
+
     .floating-btn:active {
       transform: scale(0.9);
     }
+
     .whatsapp-btn {
       background-color: #25d366;
     }
+
     .instagram-btn {
       background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
     }
+
     .call-btn {
       background-color: var(--accent-color);
     }
@@ -950,6 +1069,7 @@
       transition: opacity 0.8s cubic-bezier(0.215, 0.61, 0.355, 1), transform 0.8s cubic-bezier(0.215, 0.61, 0.355, 1);
       will-change: transform, opacity;
     }
+
     .reveal.reveal-visible {
       opacity: 1;
       transform: translateY(0);
@@ -961,6 +1081,7 @@
         opacity: 0;
         transform: translateY(24px);
       }
+
       to {
         opacity: 1;
         transform: translateY(0);
@@ -976,16 +1097,21 @@
     .slide-img-container {
       overflow: hidden;
     }
+
     .slide-img {
       transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
     }
+
     .slide:hover .slide-img {
       transform: scale(1.04);
     }
 
     /* Accessibility - Respect Prefers Reduced Motion */
     @media (prefers-reduced-motion: reduce) {
-      *, ::before, ::after {
+
+      *,
+      ::before,
+      ::after {
         animation-delay: -1ms !important;
         animation-duration: 1ms !important;
         animation-iteration-count: 1 !important;
@@ -994,10 +1120,12 @@
         transition-duration: 0s !important;
         transition-delay: 0s !important;
       }
+
       .reveal {
         opacity: 1 !important;
         transform: none !important;
       }
+
       .animate-fade-in-up {
         opacity: 1 !important;
         animation: none !important;
@@ -1014,16 +1142,18 @@
       section {
         padding: 80px 0;
       }
-      
+
       .hero-title {
         font-size: 3.5rem;
       }
+
       .hero-ctas {
         flex-direction: row;
         justify-content: center;
         width: auto;
         gap: 16px;
       }
+
       .hero-ctas .btn {
         width: auto;
       }
@@ -1031,8 +1161,10 @@
       .about-title {
         font-size: 2.6rem;
       }
+
       .about-img-container {
-        order: 0; /* Normal order */
+        order: 0;
+        /* Normal order */
       }
 
       .stats-grid {
@@ -1048,17 +1180,21 @@
       .slide {
         grid-template-columns: 1.1fr 0.9fr;
       }
+
       .slide-img-container {
         height: 45vh;
       }
+
       .slide-content {
         padding: 40px;
         text-align: left;
         align-items: flex-start;
       }
+
       .slider-controls {
         justify-content: flex-end;
       }
+
       .portfolio-header {
         flex-direction: row;
         justify-content: space-between;
@@ -1072,6 +1208,7 @@
         overflow-x: visible;
         gap: 32px;
       }
+
       .testimonial-card {
         min-width: auto;
       }
@@ -1079,6 +1216,7 @@
       .contact-title {
         text-align: left;
       }
+
       .contact-socials {
         justify-content: flex-start;
       }
@@ -1110,12 +1248,14 @@
         box-shadow: none;
         z-index: auto;
       }
+
       .nav-link {
         font-size: 0.8rem;
         padding: 6px 0;
         border-bottom: none;
         position: relative;
       }
+
       .nav-link::after {
         content: '';
         position: absolute;
@@ -1128,10 +1268,12 @@
         transform-origin: right;
         transition: transform 0.4s cubic-bezier(0.215, 0.61, 0.355, 1);
       }
+
       .nav-link:hover::after {
         transform: scaleX(1);
         transform-origin: left;
       }
+
       .menu-toggle {
         display: none;
       }
@@ -1141,19 +1283,24 @@
         gap: 48px;
         text-align: left;
       }
+
       .hero-content {
         align-items: flex-start;
         text-align: left;
       }
+
       .hero-title {
         font-size: clamp(2.5rem, 5vw, 4.2rem);
       }
+
       .hero-description {
         max-width: 520px;
       }
+
       .hero-ctas {
         justify-content: flex-start;
       }
+
       .hero-img-container {
         height: 60vh;
         min-height: 450px;
@@ -1163,10 +1310,12 @@
         grid-template-columns: 1fr 1fr;
         gap: 80px;
       }
+
       .about-content {
         text-align: left;
         align-items: flex-start;
       }
+
       .about-title {
         font-size: 2.8rem;
       }
@@ -1178,9 +1327,11 @@
       .slide {
         grid-template-columns: 1.2fr 0.8fr;
       }
+
       .slide-img-container {
         height: 65vh;
       }
+
       .slide-content {
         padding: 60px 48px;
       }
@@ -1201,15 +1352,18 @@
         right: 30px;
         gap: 12px;
       }
+
       .floating-btn {
         width: 52px;
         height: 52px;
       }
+
       .floating-btn:hover {
         transform: scale(1.1);
       }
   </style>
 </head>
+
 <body>
 
   <!-- Navigation Header -->
@@ -1219,7 +1373,7 @@
         <!-- Logo populated dynamically or via template -->
         <span id="nav-logo-text">{{COMPANY_NAME}}</span>
       </a>
-      
+
       <nav class="nav-links" id="navbar-menu">
         <a href="#" class="nav-link">Home</a>
         <a href="#about" class="nav-link">About</a>
@@ -1230,7 +1384,8 @@
       </nav>
 
       <div class="nav-right">
-        <a href="#contact" class="btn btn-outline" id="nav-cta-btn" style="padding: 8px 16px; font-size: 0.75rem;">Contact Us</a>
+        <a href="#contact" class="btn btn-outline" id="nav-cta-btn"
+          style="padding: 8px 16px; font-size: 0.75rem;">Contact Us</a>
         <div class="menu-toggle" id="mobile-toggle">
           <span></span>
           <span></span>
@@ -1241,7 +1396,7 @@
   </header>
 
   <main>
-    
+
     <!-- Hero Section -->
     <section id="hero">
       <div class="container hero-grid">
@@ -1332,7 +1487,7 @@
             </button>
           </div>
         </div>
-        
+
         <div class="slider-outer reveal" style="transition-delay: 0.1s;">
           <div class="slider-track" id="slider-track-el">
             <!-- Dynamic Slides Rendered Here -->
@@ -1386,7 +1541,7 @@
         <div class="contact-info reveal">
           <span class="hero-subtitle">Inquire</span>
           <h2 class="contact-title">Let's Create Your Space</h2>
-          
+
           <div class="contact-list">
             <div class="contact-item">
               <span class="contact-label">Call Us</span>
@@ -1398,21 +1553,23 @@
             </div>
             <div class="contact-item">
               <span class="contact-label">Visit Us</span>
-              <span class="contact-value"><a href="{{GOOGLE_MAP}}" target="_blank" id="contact-address-el">{{ADDRESS}}</a></span>
+              <span class="contact-value"><a href="{{GOOGLE_MAP}}" target="_blank"
+                  id="contact-address-el">{{ADDRESS}}</a></span>
               <!-- Styled Map Image Card -->
-              <a href="{{GOOGLE_MAP}}" target="_blank" rel="noopener noreferrer" class="map-link-card" id="map-link-card-el">
+              <a href="{{GOOGLE_MAP}}" target="_blank" rel="noopener noreferrer" class="map-link-card"
+                id="map-link-card-el">
                 <div class="map-overlay">
                   <span>View on Google Maps</span>
                 </div>
               </a>
             </div>
           </div>
-          
+
           <div class="contact-socials" id="social-icons-container">
             <!-- Social links populated dynamically -->
           </div>
         </div>
-        
+
         <div class="contact-form-container reveal" style="transition-delay: 0.2s;">
           <form class="contact-form" onsubmit="event.preventDefault(); alert('Message sent successfully!');">
             <div class="form-group">
@@ -1425,7 +1582,8 @@
             </div>
             <div class="form-group">
               <label class="form-label" for="form-message">Message</label>
-              <textarea id="form-message" class="form-input" required placeholder="Tell us about your project..."></textarea>
+              <textarea id="form-message" class="form-input" required
+                placeholder="Tell us about your project..."></textarea>
             </div>
             <div>
               <button type="submit" class="btn btn-filled">Contact Us</button>
@@ -1501,7 +1659,7 @@
       } else {
         navLogoText.textContent = config.brand.companyName;
       }
-      
+
       const navCtaBtn = document.getElementById("nav-cta-btn");
       if (navCtaBtn) {
         navCtaBtn.textContent = config.ctas.primaryCta;
@@ -1511,19 +1669,19 @@
       // Populate Hero Section
       const heroSubtitle = document.querySelector("#hero .hero-subtitle");
       if (heroSubtitle) heroSubtitle.textContent = config.hero.subtitle;
-      
+
       const heroTitle = document.querySelector("#hero .hero-title");
       if (heroTitle) heroTitle.textContent = config.hero.title;
-      
+
       const heroDesc = document.querySelector("#hero .hero-description");
       if (heroDesc) heroDesc.textContent = config.about.description;
-      
+
       // Populate Hero Slideshow (Dynamic images)
       const heroSlideshow = document.getElementById("hero-slideshow-container");
       if (heroSlideshow) {
         const images = Array.isArray(config.hero.images) ? config.hero.images : [config.hero.image];
         const validImages = images.filter(img => img && !img.includes("{{"));
-        
+
         if (validImages.length > 0) {
           heroSlideshow.innerHTML = validImages.map((img, idx) => `
             <img src="${img}" alt="Luxury Living Room" class="hero-slide ${idx === 0 ? 'active' : ''}">
@@ -1546,25 +1704,25 @@
           `;
         }
       }
-      
+
       const heroPrimaryBtn = document.querySelector("#hero .btn-filled");
       if (heroPrimaryBtn) heroPrimaryBtn.textContent = config.ctas.primaryCta;
-      
+
       const heroSecondaryBtn = document.querySelector("#hero .btn-underline");
       if (heroSecondaryBtn) heroSecondaryBtn.textContent = config.ctas.secondaryCta;
 
       // Populate About Section
       const aboutTitle = document.querySelector("#about .about-title");
       if (aboutTitle) aboutTitle.textContent = config.about.title;
-      
+
       const aboutDesc = document.querySelector("#about .about-description");
       if (aboutDesc) aboutDesc.textContent = config.about.description;
-      
+
       const aboutContainer = document.getElementById("about-img-container-el");
       if (aboutContainer) {
         const fileUrl = config.about.image && !config.about.image.includes("{{") ? config.about.image : "./assets/about.jpg";
         const isVideo = fileUrl.endsWith(".mp4") || fileUrl.endsWith(".webm") || fileUrl.endsWith(".mov");
-        
+
         if (isVideo) {
           aboutContainer.innerHTML = `
             <video autoplay loop muted playsinline class="about-img" style="width: 100%; height: auto; object-fit: cover; aspect-ratio: 4/5;">
@@ -1582,13 +1740,13 @@
       // Populate Statistics
       const statYears = document.getElementById("stat-years");
       if (statYears) statYears.textContent = config.statistics.yearsExperience;
-      
+
       const statProjects = document.getElementById("stat-projects");
       if (statProjects) statProjects.textContent = config.statistics.projectsCompleted;
-      
+
       const statClients = document.getElementById("stat-clients");
       if (statClients) statClients.textContent = config.statistics.clientsServed;
-      
+
       const statAwards = document.getElementById("stat-awards");
       if (statAwards) statAwards.textContent = config.statistics.awards;
 
@@ -1598,19 +1756,19 @@
         contactPhone.textContent = config.contact.phone;
         contactPhone.href = `tel:${config.contact.phone}`;
       }
-      
+
       const contactEmail = document.getElementById("contact-email-el");
       if (contactEmail) {
         contactEmail.textContent = config.contact.email;
         contactEmail.href = `mailto:${config.contact.email}`;
       }
-      
+
       const contactAddress = document.getElementById("contact-address-el");
       if (contactAddress) {
         contactAddress.textContent = config.contact.address;
         contactAddress.href = config.contact.googleMap;
       }
-      
+
       const contactSubmitBtn = document.querySelector("#contact form button[type='submit']");
       if (contactSubmitBtn) contactSubmitBtn.textContent = config.ctas.primaryCta;
 
@@ -1680,10 +1838,10 @@
           question.addEventListener("click", () => {
             const item = question.parentElement;
             const isActive = item.classList.contains("active");
-            
+
             // Close all other FAQ items
             faqContainerEl.querySelectorAll(".faq-item").forEach(i => i.classList.remove("active"));
-            
+
             // Toggle clicked item
             if (!isActive) {
               item.classList.add("active");
@@ -1735,7 +1893,7 @@
       // 10. Implement Custom Project Slider
       const sliderTrack = document.getElementById("slider-track-el");
       const dotsContainer = document.getElementById("slider-dots-container");
-      
+
       if (sliderTrack && config.projects && config.projects.length > 0) {
         // Render Slides
         sliderTrack.innerHTML = config.projects.map(proj => {
@@ -1770,10 +1928,10 @@
         function goToSlide(index) {
           if (index < 0) index = slidesCount - 1;
           if (index >= slidesCount) index = 0;
-          
+
           currentIndex = index;
           sliderTrack.style.transform = `translateX(-${currentIndex * 100}%)`;
-          
+
           // Update active dot
           dots.forEach(dot => dot.classList.remove("active"));
           dots[currentIndex].classList.add("active");
@@ -1873,6 +2031,12 @@
         floatingInstaBtn.href = config.contact.instagram;
       }
 
+      // Bind floating CTA WhatsApp link
+      const floatingWhatsAppBtn = document.getElementById("floating-whatsapp-btn");
+      if (floatingWhatsAppBtn && config.contact.whatsapp && !config.contact.whatsapp.includes("{{")) {
+        floatingWhatsAppBtn.href = config.contact.whatsapp;
+      }
+
       // Add scroll styling to header
       window.addEventListener("scroll", () => {
         const header = document.querySelector("header");
@@ -1887,21 +2051,27 @@
 
   <!-- Floating CTAs -->
   <div class="floating-ctas">
-    <a href="https://wa.me/6263952434" target="_blank" rel="noopener noreferrer" class="floating-btn whatsapp-btn" aria-label="Chat on WhatsApp">
+    <a href="https://wa.me/6263952434" target="_blank" rel="noopener noreferrer" class="floating-btn whatsapp-btn"
+      id="floating-whatsapp-btn" aria-label="Chat on WhatsApp">
       <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
-        <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.003 5.324 5.328 0 11.859 0c3.166.001 6.141 1.233 8.377 3.469 2.235 2.237 3.465 5.212 3.464 8.384-.003 6.535-5.328 11.86-11.859 11.86-2.007-.001-3.98-.51-5.734-1.482L0 24zm6.59-4.846c1.6.95 3.188 1.449 4.725 1.45 5.275 0 9.569-4.292 9.572-9.566.001-2.553-1.002-4.955-2.825-6.779-1.82-1.823-4.232-2.826-6.78-2.828-5.278 0-9.577 4.293-9.58 9.569-.001 1.636.441 3.238 1.285 4.673l-.997 3.639 3.73-.978zM17.159 14c-.284-.142-1.68-.83-1.943-.925-.263-.096-.456-.142-.648.142-.19.283-.739.925-.907 1.114-.167.189-.335.213-.618.071-.282-.142-1.193-.44-2.272-1.402-.84-.748-1.407-1.671-1.573-1.954-.166-.283-.018-.435.124-.576.128-.127.284-.33.426-.496.143-.165.19-.283.285-.472.095-.188.047-.353-.024-.495-.071-.142-.648-1.56-.887-2.132-.233-.561-.47-.485-.648-.495-.167-.008-.359-.01-.55-.01s-.502.072-.765.353c-.263.284-1.005.981-1.005 2.39 0 1.41 1.028 2.766 1.171 2.956.143.19 2.023 3.09 4.901 4.33.684.295 1.218.471 1.636.603.687.218 1.312.187 1.808.113.553-.083 1.68-.687 1.918-1.352.238-.665.238-1.236.167-1.352-.07-.117-.263-.189-.548-.331z"/>
+        <path
+          d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.003 5.324 5.328 0 11.859 0c3.166.001 6.141 1.233 8.377 3.469 2.235 2.237 3.465 5.212 3.464 8.384-.003 6.535-5.328 11.86-11.859 11.86-2.007-.001-3.98-.51-5.734-1.482L0 24zm6.59-4.846c1.6.95 3.188 1.449 4.725 1.45 5.275 0 9.569-4.292 9.572-9.566.001-2.553-1.002-4.955-2.825-6.779-1.82-1.823-4.232-2.826-6.78-2.828-5.278 0-9.577 4.293-9.58 9.569-.001 1.636.441 3.238 1.285 4.673l-.997 3.639 3.73-.978zM17.159 14c-.284-.142-1.68-.83-1.943-.925-.263-.096-.456-.142-.648.142-.19.283-.739.925-.907 1.114-.167.189-.335.213-.618.071-.282-.142-1.193-.44-2.272-1.402-.84-.748-1.407-1.671-1.573-1.954-.166-.283-.018-.435.124-.576.128-.127.284-.33.426-.496.143-.165.19-.283.285-.472.095-.188.047-.353-.024-.495-.071-.142-.648-1.56-.887-2.132-.233-.561-.47-.485-.648-.495-.167-.008-.359-.01-.55-.01s-.502.072-.765.353c-.263.284-1.005.981-1.005 2.39 0 1.41 1.028 2.766 1.171 2.956.143.19 2.023 3.09 4.901 4.33.684.295 1.218.471 1.636.603.687.218 1.312.187 1.808.113.553-.083 1.68-.687 1.918-1.352.238-.665.238-1.236.167-1.352-.07-.117-.263-.189-.548-.331z" />
       </svg>
     </a>
-    <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="floating-btn instagram-btn" id="floating-instagram-btn" aria-label="Follow us on Instagram">
+    <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="floating-btn instagram-btn"
+      id="floating-instagram-btn" aria-label="Follow us on Instagram">
       <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor">
-        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/>
+        <path
+          d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z" />
       </svg>
     </a>
     <a href="tel:+1 (305) 555-0150" class="floating-btn call-btn" id="floating-call-btn" aria-label="Call Us Now">
       <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
-        <path d="M21.384 17.752a15.908 15.908 0 0 1-2.928-1.347c-.633-.377-1.386-.188-1.84.423l-1.316 1.776a16.146 16.146 0 0 1-6.142-6.142l1.776-1.316c.611-.454.8-1.207.423-1.84a15.908 15.908 0 0 1-1.347-2.928c-.305-.885-1.23-1.425-2.164-1.32L4.62 5.372c-.886.098-1.562.836-1.587 1.728-.217 7.744 6.096 14.057 13.84 13.84.892-.025 1.63-.701 1.728-1.587l.29-2.62c.105-.934-.435-1.859-1.32-2.164z"/>
+        <path
+          d="M21.384 17.752a15.908 15.908 0 0 1-2.928-1.347c-.633-.377-1.386-.188-1.84.423l-1.316 1.776a16.146 16.146 0 0 1-6.142-6.142l1.776-1.316c.611-.454.8-1.207.423-1.84a15.908 15.908 0 0 1-1.347-2.928c-.305-.885-1.23-1.425-2.164-1.32L4.62 5.372c-.886.098-1.562.836-1.587 1.728-.217 7.744 6.096 14.057 13.84 13.84.892-.025 1.63-.701 1.728-1.587l.29-2.62c.105-.934-.435-1.859-1.32-2.164z" />
       </svg>
     </a>
   </div>
 </body>
+
 </html>
