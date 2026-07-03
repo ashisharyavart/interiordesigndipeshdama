@@ -139,7 +139,7 @@ window.SITE_CONFIG = {
   // 13. Team catalog
   team: [
     {
-      image: "./assets/dipesh.png",
+      image: "./assets/din2.png",
       name: "Dipesh Dama",
       role: "Founder and project manager"
     },
