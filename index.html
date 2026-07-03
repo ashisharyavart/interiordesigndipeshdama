@@ -465,46 +465,116 @@
       opacity: 0.7;
     }
 
-    /* 5. Services Section - Mobile stack */
-    .services-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 24px;
-      margin-top: 40px;
-    }
-
+    /* 5. Services Section - Mobile stack & New Layout */
     .services-header {
       text-align: center;
-      margin-bottom: 20px;
+      margin-bottom: 40px;
     }
 
     .services-header h2 {
-      font-size: 2.2rem;
+      font-size: clamp(1.8rem, 5vw, 2.5rem);
+      line-height: 1.25;
+      font-weight: 300;
+      margin-top: 8px;
     }
 
-    .service-card {
+    .services-content-layout {
       display: flex;
       flex-direction: column;
-      gap: 12px;
-      transition: all 0.4s ease;
-      min-height: auto;
-      padding: 24px;
+      gap: 32px;
+      margin-bottom: 50px;
     }
 
-    .service-icon {
-      font-size: 1.8rem;
+    .services-columns-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+
+    .services-list-col {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .services-list-item {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .service-icon-svg {
+      width: 24px;
+      height: 24px;
+      flex-shrink: 0;
       color: var(--accent-color);
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
-    .service-title {
-      font-size: 1.25rem;
-      font-weight: 400;
+    .service-icon-svg svg {
+      width: 100%;
+      height: 100%;
     }
 
-    .service-desc {
-      font-size: 0.9rem;
+    .service-item-label {
+      font-size: 1rem;
       font-weight: 300;
-      opacity: 0.8;
+      line-height: 1.4;
+    }
+
+    .services-desc-col {
+      display: flex;
+      align-items: center;
+    }
+
+    .services-body-text {
+      font-size: 1rem;
+      font-weight: 300;
+      line-height: 1.6;
+      opacity: 0.85;
+    }
+
+    .services-badges-row {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 30px;
+      margin-top: 50px;
+      border-top: 1px solid rgba(42, 36, 33, 0.08);
+      padding-top: 40px;
+    }
+
+    .badge-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+      text-align: center;
+    }
+
+    .badge-icon-circle {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      border: 1px solid var(--accent-color);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--accent-color);
+      transition: all 0.3s ease;
+    }
+
+    .badge-icon-circle svg {
+      width: 24px;
+      height: 24px;
+    }
+
+    .badge-label {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      font-weight: 400;
     }
 
     /* 6. Featured Projects Slideshow - Mobile stack */
@@ -1320,8 +1390,25 @@
         font-size: 2.8rem;
       }
 
-      .services-grid {
-        grid-template-columns: repeat(3, 1fr);
+      .services-content-layout {
+        flex-direction: row;
+        align-items: stretch;
+        gap: 60px;
+      }
+
+      .services-columns-grid {
+        grid-template-columns: repeat(2, 1fr);
+        flex: 1.2;
+        gap: 30px;
+      }
+
+      .services-desc-col {
+        flex: 0.8;
+      }
+
+      .services-badges-row {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 40px;
       }
 
       .slide {
@@ -1454,11 +1541,143 @@
     <section id="services">
       <div class="container">
         <div class="services-header reveal">
-          <span class="hero-subtitle">What We Do</span>
-          <h2>Our Services</h2>
+          <span class="hero-subtitle">What We Offer</span>
+          <h2>We Specialize In A Wide Range Of Premium Interior Design Services.</h2>
         </div>
-        <div class="services-grid" id="services-container">
-          <!-- Dynamically Populated -->
+        
+        <div class="services-content-layout">
+          <!-- Two-column list -->
+          <div class="services-columns-grid reveal">
+            <div class="services-list-col">
+              <div class="services-list-item">
+                <span class="service-icon-svg">
+                  <!-- Foyers: Door/Gate outline -->
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                  </svg>
+                </span>
+                <span class="service-item-label">Foyers</span>
+              </div>
+              <div class="services-list-item">
+                <span class="service-icon-svg">
+                  <!-- False Ceilings: Ceiling pattern -->
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 10h16M4 14h16M4 18h16" />
+                  </svg>
+                </span>
+                <span class="service-item-label">False Ceilings</span>
+              </div>
+              <div class="services-list-item">
+                <span class="service-icon-svg">
+                  <!-- Bathroom Designs: Bath tub outline -->
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 10h18M6 6V4h12v2M4 17a3 3 0 003 3h10a3 3 0 003-3v-4H4v4z" />
+                  </svg>
+                </span>
+                <span class="service-item-label">Bathroom Designs</span>
+              </div>
+              <div class="services-list-item">
+                <span class="service-icon-svg">
+                  <!-- Storage Solutions & Wardrobes: Cupboard outline -->
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 4h16v16H4V4zm8 0v16M4 9h16M4 14h16" />
+                  </svg>
+                </span>
+                <span class="service-item-label">Storage Solutions & Wardrobes</span>
+              </div>
+            </div>
+            
+            <div class="services-list-col">
+              <div class="services-list-item">
+                <span class="service-icon-svg">
+                  <!-- Pooja Units: Temple roof/lotus icon -->
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 3l8 6v12H4V9l8-6zm0 0v18M8 12h8m-8 4h8" />
+                  </svg>
+                </span>
+                <span class="service-item-label">Pooja Units</span>
+              </div>
+              <div class="services-list-item">
+                <span class="service-icon-svg">
+                  <!-- Modular Kitchens: Stove/Kitchen hood outline -->
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2H7a2 2 0 00-2 2v2m7 4h.01M9 15h.01M15 15h.01" />
+                  </svg>
+                </span>
+                <span class="service-item-label">Modular Kitchens</span>
+              </div>
+              <div class="services-list-item">
+                <span class="service-icon-svg">
+                  <!-- Outdoor/Balcony Spaces: Sun/Balcony outline -->
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707m0-12.728l.707.707m12.728 12.728l-.707.707M12 8a4 4 0 100 8 4 4 0 000-8z" />
+                  </svg>
+                </span>
+                <span class="service-item-label">Outdoor/Balcony Spaces</span>
+              </div>
+              <div class="services-list-item">
+                <span class="service-icon-svg">
+                  <!-- Living Spaces & much more: Sofa outline -->
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M20 10V7a2 2 0 00-2-2H6a2 2 0 00-2 2v3m16 0a2 2 0 012 2v4a2 2 0 01-2 2H4a2 2 0 01-2-2v-4a2 2 0 012-2m16 0H4m4 6v2m8-2v2" />
+                  </svg>
+                </span>
+                <span class="service-item-label">Living Spaces & much more to transform your home!</span>
+              </div>
+            </div>
+          </div>
+          
+          <div class="services-desc-col reveal" style="transition-delay: 0.2s;">
+            <p class="services-body-text">
+              We handle everything for your dream home, from design to flawless
+              completion, on time and on budget. Our experts create unique spaces that
+              reflect your style. Experience luxury redefined — it's about you, not
+              just the price tag.
+            </p>
+          </div>
+        </div>
+
+        <!-- Badges section -->
+        <div class="services-badges-row reveal" style="transition-delay: 0.3s;">
+          <div class="badge-item">
+            <div class="badge-icon-circle">
+              <!-- Life Time Warranty -->
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+              </svg>
+            </div>
+            <span class="badge-label">Life Time Warranty</span>
+          </div>
+          
+          <div class="badge-item">
+            <div class="badge-icon-circle">
+              <!-- Turnkey Solutions -->
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 7a2 2 0 012 2m-2-2a2 2 0 00-2 2m2-2a2 2 0 012-2m0 0h.01M17 17h.01M9 19H7a2 2 0 01-2-2v-2M9 5H7a2 2 0 00-2 2v2m14 10h-2a2 2 0 01-2-2v-2" />
+              </svg>
+            </div>
+            <span class="badge-label">Turnkey Solutions</span>
+          </div>
+          
+          <div class="badge-item">
+            <div class="badge-icon-circle">
+              <!-- Timely Delivery -->
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+            </div>
+            <span class="badge-label">Timely Delivery</span>
+          </div>
+          
+          <div class="badge-item">
+            <div class="badge-icon-circle">
+              <!-- Original Designs -->
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
+              </svg>
+            </div>
+            <span class="badge-label">Original Designs</span>
+          </div>
         </div>
       </div>
     </section>
@@ -1772,17 +1991,7 @@
       const contactSubmitBtn = document.querySelector("#contact form button[type='submit']");
       if (contactSubmitBtn) contactSubmitBtn.textContent = config.ctas.primaryCta;
 
-      // 4. Render Services
-      const servicesContainer = document.getElementById("services-container");
-      if (servicesContainer) {
-        servicesContainer.innerHTML = config.services.map((service, idx) => `
-          <div class="service-card card-${config.theme.cardStyle} reveal" style="transition-delay: ${idx * 0.1}s;">
-            <div class="service-icon">${service.icon}</div>
-            <h3 class="service-title">${service.title}</h3>
-            <p class="service-desc">${service.description}</p>
-          </div>
-        `).join("");
-      }
+
 
       // 5. Render Testimonials
       const testimonialsContainer = document.getElementById("testimonials-container");
