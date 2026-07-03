@@ -34,22 +34,22 @@ window.SITE_CONFIG = {
 
   // 3. Brand details
   brand: {
-    companyName: "CIVIEN",
+    companyName: "DIPESH DAMA ARCHITECTS",
     tagline: "Modern Luxury & Architectural Detail",
-    logo: "./assets/logocivian.png", // Path to logo image, falls back to text if empty
+    logo: "./assets/logodip.png", // Path to logo image, falls back to text if empty
     favicon: "./assets/favicon.ico"
   },
 
   // 4. Contact details & social networks
   contact: {
-    phone: "09893104461",
-    email: "civian@gmail.com",
-    address: "Gaurav Path, beside Yash Super Bazar, Gitanjali Enclave, Jarahbhata, Bilaspur, Chhattisgarh 495001",
-    whatsapp: "https://wa.me/919893104461",
-    instagram: "https://instagram.com/civien.co",
+    phone: "08818877774",
+    email: "dipeshdama@gmail.com",
+    address: "Jagmal Chowk, opposite Jhajharia Bhawan, Tarbahar Chowk, Bilaspur, Chhattisgarh 495004",
+    whatsapp: "https://wa.me/918818877774",
+    instagram: "https://instagram.com/dipesh_dama_architects",
     facebook: "{{FACEBOOK}}",
     linkedin: "{{LINKEDIN}}",
-    googleMap: "https://www.google.com/maps/search/?api=1&query=Gaurav+Path+Jarahbhata+Bilaspur+Chhattisgarh"
+    googleMap: "https://www.google.com/maps/search/?api=1&query=Jagmal+Chowk+opposite+Jhajharia+Bhawan+Tarbahar+Chowk+Bilaspur+Chhattisgarh+495004"
   },
 
   // 5. Calls to Action links
@@ -66,13 +66,13 @@ window.SITE_CONFIG = {
       "./assets/hero2.jpg",
       "./assets/hero3.jpg"
     ],
-    title: "CIVIEN",
+    title: "DIPESH DAMA ARCHITECTS",
     subtitle: "We Shape the Essence of Modern Living"
   },
 
   // 7. About section (Video/Image + Narrative description)
   about: {
-    image: "./assets/civianvideo.mp4", // Path to video (.mp4) or image file (.jpg/.png)
+    image: "./assets/aboutdip.mp4", // Path to video (.mp4) or image file (.jpg/.png)
     title: "Where Vision Meets Elegant Design",
     description: "From contemporary residences to sophisticated commercial spaces, we transform ideas into beautifully curated interiors. Every project is designed with precision, premium materials, and a commitment to creating spaces that are both visually stunning and effortlessly functional."
   },
@@ -98,10 +98,10 @@ window.SITE_CONFIG = {
   // 10. Project slideshow cards
   projects: [
     {
-      image: "./assets/project2.jpg",
-      title: "Modular Kitchen Project",
-      category: "Luxury Kitchen",
-      description: "A highly functional modular kitchen using premium hardware, integrated appliances, and elegant cabinet finishes."
+      image: "./assets/p1.mp4",
+      title: "Drip Theory Retail Store",
+      category: "Commercial Retail Interior",
+      description: "A bold clothing store interior designed to transform four walls into a memorable brand experience. Completed within just one month, the space combines modern aesthetics, custom displays, and functional layouts that reflect the identity of Drip Theory while enhancing the customer shopping experience."
     },
     {
       image: "./assets/drawingroom.png",
@@ -120,28 +120,33 @@ window.SITE_CONFIG = {
   // 11. Client testimonials cards
   testimonials: [
     {
-      name: "Shriyanshi Shukla",
+      name: "Vikas Kaushik",
       role: "Client",
       photo: "",
-      review: "They do an amazing work, paying attention to details."
+      review: "Deepesh you and your team designed my room in akaltara. It was beyond what we asked for. I would highly recommend him. His expertise and kind nature make designing a home."
     },
     {
-      name: "Lakshya Sharma",
+      name: "anurag shivani",
       role: "Client",
       photo: "",
-      review: "Great attention to detail and good involvement of the Engineer in construction, as well as interior designing. Good investment for construction of a sturdy and beautiful home."
+      review: "Superb Work By Mr Dipesh Dama. Classy work and cost worthy. Highly recommended."
     }
   ],
 
   // 12. Link to Google Business reviews or general reviews directory
-  testimonialsLink: "https://maps.app.goo.gl/DWvhqokmrgFYaV797",
+  testimonialsLink: "https://maps.app.goo.gl/1fq37tuESmqgCLp16",
 
   // 13. Team catalog
   team: [
     {
-      image: "./assets/aboutciv.png",
-      name: "Mausam Agrawal",
-      role: "Principal Designer & Founder"
+      image: "./assets/dipesh.png",
+      name: "Dipesh Dama",
+      role: "Founder and project manager"
+    },
+    {
+      image: "./assets/sweta.jpg",
+      name: "Sweta Agrawal",
+      role: "Principal Designer"
     }
   ],
 
@@ -154,6 +159,6 @@ window.SITE_CONFIG = {
 
   // 15. Footer content
   footer: {
-    copyrightText: "© 2026 CIVIEN. All rights reserved."
+    copyrightText: "© 2026 DIPESH DAMA ARCHITECTS. All rights reserved."
   }
 };
